@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JBudduan | Charcoal Art Digital Access</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #0a0a0a;
+            color: #e5e5e5;
+            font-family: 'Inter', sans-serif;
+        }
+        .playfair { font-family: 'Playfair Display', serif; }
+        
+        /* Artwork Frame */
+        .art-display-container {
+            position: relative;
+            display: inline-block;
+            box-shadow: 0 40px 80px -15px rgba(0, 0, 0, 0.9);
+            border: 12px solid #111;
+            background: #fff;
+            padding: 15px;
+            transition: transform 0.4s ease;
+        }
+
+        /* Paper Effect for Certificate */
+        .certificate-paper {
+            background-color: #fdfcfb; 
+            color: #1a1a1a;
+            border: 1px solid #d4af37; 
+            background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .signature-line {
+            border-bottom: 1.5px solid #333;
+            width: 250px;
+            margin: 40px auto 0;
+            position: relative;
+            height: 40px;
+        }
+
+        .artist-signature-img {
+            position: absolute;
+            bottom: 5px;
+            left: 50%;
+            transform: translateX(-50%);
+            max-width: 180px;
+            max-height: 80px;
+            object-fit: contain;
+            pointer-events: none;
+            rotate: -2deg;
+        }
+
+        .btn-download {
+            background: #fff;
+            color: #000;
+            transition: all 0.3s ease;
+        }
+        .btn-download:hover {
+            background: #d1d1d1;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <nav class="p-10 text-center">
+        <p class="playfair text-xl font-light tracking-[0.5em] uppercase text-gray-500">JBudduan Art Archive</p>
+        <div class="h-px w-16 bg-gray-800 mx-auto mt-4"></div>
+    </nav>
+
+    <main class="max-w-5xl mx-auto px-6 pb-24">
+        
+        <!-- MAIN ARTWORK SECTION -->
+        <section class="text-center mb-32">
+            <div class="art-display-container mb-12">
+                <!-- PALITAN MO ITONG SRC NG ACTUAL DRAWING MO -->
+                <img id="artwork-image" 
+                     src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?q=80&w=1200" 
+                     alt="JBudduan Charcoal Artwork" 
+                     class="max-w-full h-auto grayscale contrast-125">
+            </div>
+            
+            <div class="max-w-2xl mx-auto">
+                <h1 class="playfair text-4xl md:text-5xl font-bold mb-4 italic text-white tracking-tight">Charcoal Study No. 1</h1>
+                <p class="text-gray-500 tracking-[0.3em] uppercase text-xs mb-10 font-semibold">Original Charcoal on Acid-Free Paper</p>
+                
+                <!-- Download Button for the Artwork -->
+                <button onclick="downloadImage()" class="btn-download px-12 py-4 rounded-full font-bold shadow-2xl flex items-center mx-auto uppercase text-xs tracking-[0.2em]">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                    </svg>
+                    Download Digital Artwork
+                </button>
+            </div>
+        </section>
+
+        <!-- CERTIFICATE SECTION (Static View) -->
+        <div class="text-center mb-8">
+            <span class="text-gray-600 text-[10px] tracking-[0.4em] uppercase">Document Verification</span>
+        </div>
+
+        <section id="coa" class="certificate-paper p-8 md:p-16 shadow-[0_0_80px_rgba(0,0,0,0.6)]">
+            <div class="border-[1px] border-gray-200 p-6 md:p-12 text-center">
+                
+                <header class="mb-14">
+                    <h2 class="playfair text-4xl md:text-5xl font-bold text-gray-900 mb-2">Certificate of Authenticity</h2>
+                    <p class="uppercase tracking-[0.3em] text-[10px] text-gray-500 font-bold">Official Digital Record</p>
+                </header>
+
+                <div class="space-y-12">
+                    <p class="text-gray-700 text-lg italic max-w-lg mx-auto leading-relaxed">
+                        This document verifies that the charcoal artwork displayed above is a genuine, 
+                        hand-drawn original creation by the artist J. Budduan.
+                    </p>
+
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 py-10 border-t border-b border-gray-100">
+                        <div>
+                            <p class="text-[9px] uppercase text-gray-400 mb-1">Artist</p>
+                            <p class="font-bold text-sm text-black">J. Budduan</p>
+                        </div>
+                        <div>
+                            <p class="text-[9px] uppercase text-gray-400 mb-1">Medium</p>
+                            <p class="font-bold text-sm text-black">Charcoal</p>
+                        </div>
+                        <div>
+                            <p class="text-[9px] uppercase text-gray-400 mb-1">Dimensions</p>
+                            <p class="font-bold text-sm text-black">12 x 18 in</p>
+                        </div>
+                        <div>
+                            <p class="text-[9px] uppercase text-gray-400 mb-1">Year</p>
+                            <p class="font-bold text-sm text-black">2026</p>
+                        </div>
+                    </div>
+
+                    <!-- Signature Display -->
+                    <div class="mt-12">
+                        <div class="signature-line">
+                            <!--  -->
+                            <img src="https://placehold.co/400x200/ffffff/000000?text=I-upload+Signature" 
+                                 alt="Artist Signature" 
+                                 class="artist-signature-img">
+                        </div>
+                        <p class="mt-4 text-[11px] uppercase tracking-[0.3em] font-bold text-gray-800">J. Budduan</p>
+                        <p class="text-[9px] text-gray-400 uppercase tracking-widest italic">Authorized Signature</p>
+                    </div>
+                </div>
+
+                <footer class="mt-20">
+                    <p class="text-[8px] text-gray-400 uppercase tracking-[0.5em]">
+                        Reg ID: JB-2026-CH011-AUTH
+                    </p>
+                </footer>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="text-center py-20 border-t border-gray-900 bg-[#050505]">
+        <p class="text-gray-700 text-[10px] tracking-[0.5em] uppercase">Copyright © JBudduan 2026</p>
+    </footer>
+
+    <script>
+        // Function para i-download ang mismong artwork image
+        async function downloadImage() {
+            const imgElement = document.getElementById('artwork-image');
+            const imageUrl = imgElement.src;
+            
+            try {
+                const response = await fetch(imageUrl);
+                const blob = await response.blob();
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.style.display = 'none';
+                a.href = url;
+                a.download = 'JBudduan-Charcoal-Artwork.jpg';
+                document.body.appendChild(a);
+                a.click();
+                window.URL.revokeObjectURL(url);
+            } catch (error) {
+                // Fallback kung may CORS issue
+                window.open(imageUrl, '_blank');
+            }
+        }
+    </script>
+
+</body>
+</html>
